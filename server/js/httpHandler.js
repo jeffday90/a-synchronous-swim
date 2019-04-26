@@ -7,8 +7,14 @@ const multipart = require('./multipartUtils');
 module.exports.backgroundImageFile = path.join('.', 'background.jpg');
 ////////////////////////////////////////////////////////
 
-module.exports.router = (req, res, next = ()=>{}) => {
+module.exports.router = (req, res, next = () => { }) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
   res.writeHead(200, headers);
-  res.end();
+  if (req.method === 'GET') {
+    var commands = ['left', 'right', 'up', 'down'];
+    var index = Math.round(Math.random() * 3);
+    res.end(commands[index]);
+  } else {
+    res.end();
+  }
 };
