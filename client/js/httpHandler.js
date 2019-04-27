@@ -28,7 +28,7 @@ const getRequest = () => {
     })
 };
 
-//setInterval(getRequest, 500);
+setInterval(getRequest, 50);
 
 
 
